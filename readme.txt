@@ -1,8 +1,8 @@
 === CleanMod – AI Comment Moderation ===
 Contributors: cleanmod
-Tags: comments, moderation, spam, ai, content-moderation, toxic-comments
+Tags: comments, moderation, spam, ai, content-moderation
 Requires at least: 5.0
-Tested up to: 6.4
+Tested up to: 6.8
 Stable tag: 0.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
