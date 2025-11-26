@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CleanMod – AI Comment Moderation
- * Plugin URI: https://cleanmod.dev
+ * Plugin URI: https://github.com/shlomizadok/cleanmod-wp
  * Description: Uses CleanMod to detect toxic comments and automatically hold or block them.
  * Version: 0.1.0
  * Author: CleanMod
