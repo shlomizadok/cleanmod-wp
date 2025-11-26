@@ -1,4 +1,4 @@
-# CleanMod WordPress Plugin
+# CleanMod – AI Comment Moderation
 
 WordPress plugin that integrates CleanMod AI comment moderation to automatically detect and handle toxic comments.
 

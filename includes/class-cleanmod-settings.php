@@ -37,8 +37,8 @@ class CleanMod_Settings {
 	 */
 	public function add_settings_page() {
 		add_options_page(
-			__( 'CleanMod Settings', 'cleanmod' ),
-			__( 'CleanMod', 'cleanmod' ),
+			__( 'CleanMod Settings', 'wp-cleanmod' ),
+			__( 'CleanMod', 'wp-cleanmod' ),
 			'manage_options',
 			'cleanmod',
 			array( $this, 'render_settings_page' )
@@ -65,14 +65,14 @@ class CleanMod_Settings {
 
 		add_settings_section(
 			'cleanmod_main_section',
-			__( 'Configuration', 'cleanmod' ),
+			__( 'Configuration', 'wp-cleanmod' ),
 			array( $this, 'render_section_description' ),
 			'cleanmod'
 		);
 
 		add_settings_field(
 			'cleanmod_enabled',
-			__( 'Enable CleanMod', 'cleanmod' ),
+			__( 'Enable CleanMod', 'wp-cleanmod' ),
 			array( $this, 'render_enabled_field' ),
 			'cleanmod',
 			'cleanmod_main_section'
@@ -80,7 +80,7 @@ class CleanMod_Settings {
 
 		add_settings_field(
 			'cleanmod_api_key',
-			__( 'API Key', 'cleanmod' ),
+			__( 'API Key', 'wp-cleanmod' ),
 			array( $this, 'render_api_key_field' ),
 			'cleanmod',
 			'cleanmod_main_section'
@@ -88,14 +88,14 @@ class CleanMod_Settings {
 
 		add_settings_section(
 			'cleanmod_behavior_section',
-			__( 'Moderation Behavior', 'cleanmod' ),
+			__( 'Moderation Behavior', 'wp-cleanmod' ),
 			array( $this, 'render_behavior_section_description' ),
 			'cleanmod'
 		);
 
 		add_settings_field(
 			'cleanmod_behavior_flag',
-			__( 'When decision is "flag"', 'cleanmod' ),
+			__( 'When decision is "flag"', 'wp-cleanmod' ),
 			array( $this, 'render_behavior_flag_field' ),
 			'cleanmod',
 			'cleanmod_behavior_section'
@@ -103,7 +103,7 @@ class CleanMod_Settings {
 
 		add_settings_field(
 			'cleanmod_behavior_block',
-			__( 'When decision is "block"', 'cleanmod' ),
+			__( 'When decision is "block"', 'wp-cleanmod' ),
 			array( $this, 'render_behavior_block_field' ),
 			'cleanmod',
 			'cleanmod_behavior_section'
@@ -145,11 +145,11 @@ class CleanMod_Settings {
 
 			<?php if ( ! empty( $api_key ) && $enabled ) : ?>
 				<div class="notice notice-success inline">
-					<p><?php esc_html_e( 'CleanMod is enabled. New comments will be checked using your current settings.', 'cleanmod' ); ?></p>
+					<p><?php esc_html_e( 'CleanMod is enabled. New comments will be checked using your current settings.', 'wp-cleanmod' ); ?></p>
 				</div>
 			<?php else : ?>
 				<div class="notice notice-info inline">
-					<p><?php esc_html_e( 'Add your CleanMod API key to start moderating comments.', 'cleanmod' ); ?></p>
+					<p><?php esc_html_e( 'Add your CleanMod API key to start moderating comments.', 'wp-cleanmod' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -157,7 +157,7 @@ class CleanMod_Settings {
 				<?php
 				settings_fields( 'cleanmod_settings_group' );
 				do_settings_sections( 'cleanmod' );
-				submit_button( __( 'Save Settings', 'cleanmod' ) );
+				submit_button( __( 'Save Settings', 'wp-cleanmod' ) );
 				?>
 			</form>
 
@@ -166,8 +166,8 @@ class CleanMod_Settings {
 					<?php
 					printf(
 						/* translators: %s: URL to CleanMod dashboard */
-						esc_html__( 'Get an API key from your %s.', 'cleanmod' ),
-						'<a href="https://cleanmod.dev/dashboard/api-keys" target="_blank" rel="noopener noreferrer">' . esc_html__( 'CleanMod dashboard', 'cleanmod' ) . '</a>'
+						esc_html__( 'Get an API key from your %s.', 'wp-cleanmod' ),
+						'<a href="https://cleanmod.dev/dashboard/api-keys" target="_blank" rel="noopener noreferrer">' . esc_html__( 'CleanMod dashboard', 'wp-cleanmod' ) . '</a>'
 					);
 					?>
 				</p>
@@ -181,7 +181,7 @@ class CleanMod_Settings {
 	 */
 	public function render_section_description() {
 		?>
-		<p><?php esc_html_e( 'Use an API key from your CleanMod dashboard. Comments are sent to CleanMod\'s moderation API before they\'re approved.', 'cleanmod' ); ?></p>
+		<p><?php esc_html_e( 'Use an API key from your CleanMod dashboard. Comments are sent to CleanMod\'s moderation API before they\'re approved.', 'wp-cleanmod' ); ?></p>
 		<?php
 	}
 
@@ -190,7 +190,7 @@ class CleanMod_Settings {
 	 */
 	public function render_behavior_section_description() {
 		?>
-		<p><?php esc_html_e( 'CleanMod doesn\'t replace your existing moderation rules – it adds an extra safety net.', 'cleanmod' ); ?></p>
+		<p><?php esc_html_e( 'CleanMod doesn\'t replace your existing moderation rules – it adds an extra safety net.', 'wp-cleanmod' ); ?></p>
 		<?php
 	}
 
@@ -203,7 +203,7 @@ class CleanMod_Settings {
 		?>
 		<label>
 			<input type="checkbox" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[enabled]" value="1" <?php checked( $enabled, true ); ?> />
-			<?php esc_html_e( 'Enable CleanMod moderation', 'cleanmod' ); ?>
+			<?php esc_html_e( 'Enable CleanMod moderation', 'wp-cleanmod' ); ?>
 		</label>
 		<?php
 	}
@@ -216,7 +216,7 @@ class CleanMod_Settings {
 		$api_key  = isset( $settings['api_key'] ) ? $settings['api_key'] : '';
 		?>
 		<input type="text" name="<?php echo esc_attr( self::OPTION_NAME ); ?>[api_key]" value="<?php echo esc_attr( $api_key ); ?>" class="regular-text" />
-		<p class="description"><?php esc_html_e( 'Your CleanMod API key. Required for the plugin to work.', 'cleanmod' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Your CleanMod API key. Required for the plugin to work.', 'wp-cleanmod' ); ?></p>
 		<?php
 	}
 
@@ -228,10 +228,10 @@ class CleanMod_Settings {
 		$behavior_flag  = isset( $settings['behavior_flag'] ) ? $settings['behavior_flag'] : 'hold';
 		?>
 		<select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[behavior_flag]">
-			<option value="no_change" <?php selected( $behavior_flag, 'no_change' ); ?>><?php esc_html_e( 'No change (pass through)', 'cleanmod' ); ?></option>
-			<option value="hold" <?php selected( $behavior_flag, 'hold' ); ?>><?php esc_html_e( 'Hold for moderation', 'cleanmod' ); ?></option>
+			<option value="no_change" <?php selected( $behavior_flag, 'no_change' ); ?>><?php esc_html_e( 'No change (pass through)', 'wp-cleanmod' ); ?></option>
+			<option value="hold" <?php selected( $behavior_flag, 'hold' ); ?>><?php esc_html_e( 'Hold for moderation', 'wp-cleanmod' ); ?></option>
 		</select>
-		<p class="description"><?php esc_html_e( 'What to do when CleanMod flags a comment for review.', 'cleanmod' ); ?></p>
+		<p class="description"><?php esc_html_e( 'What to do when CleanMod flags a comment for review.', 'wp-cleanmod' ); ?></p>
 		<?php
 	}
 
@@ -243,10 +243,10 @@ class CleanMod_Settings {
 		$behavior_block  = isset( $settings['behavior_block'] ) ? $settings['behavior_block'] : 'spam';
 		?>
 		<select name="<?php echo esc_attr( self::OPTION_NAME ); ?>[behavior_block]">
-			<option value="hold" <?php selected( $behavior_block, 'hold' ); ?>><?php esc_html_e( 'Hold for moderation', 'cleanmod' ); ?></option>
-			<option value="spam" <?php selected( $behavior_block, 'spam' ); ?>><?php esc_html_e( 'Mark as spam', 'cleanmod' ); ?></option>
+			<option value="hold" <?php selected( $behavior_block, 'hold' ); ?>><?php esc_html_e( 'Hold for moderation', 'wp-cleanmod' ); ?></option>
+			<option value="spam" <?php selected( $behavior_block, 'spam' ); ?>><?php esc_html_e( 'Mark as spam', 'wp-cleanmod' ); ?></option>
 		</select>
-		<p class="description"><?php esc_html_e( 'What to do when CleanMod blocks a comment as toxic.', 'cleanmod' ); ?></p>
+		<p class="description"><?php esc_html_e( 'What to do when CleanMod blocks a comment as toxic.', 'wp-cleanmod' ); ?></p>
 		<?php
 	}
 

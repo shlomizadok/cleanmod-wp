@@ -67,7 +67,7 @@ class CleanMod_Moderation {
 		// Fail-open: if API fails, don't break comment submission
 		if ( is_wp_error( $result ) ) {
 			// Log error for debugging (optional)
-			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 				error_log( 'CleanMod API error: ' . $result->get_error_message() );
 			}
 			return $approved;
