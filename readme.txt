@@ -2,7 +2,7 @@
 Contributors: cleanmod
 Tags: comments, moderation, spam, ai, content-moderation
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 0.1.0
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -28,9 +28,21 @@ CleanMod WordPress Plugin integrates CleanMod AI comment moderation to automatic
 3. Based on the `decision` returned (`allow`, `flag`, or `block`), the comment status is adjusted according to your settings
 4. If the API is unavailable, comments proceed normally (fail-open policy)
 
+== External Services ==
+
+This plugin relies on the CleanMod moderation service (https://cleanmod.dev) to analyze and moderate comments. When a new comment is submitted on your WordPress site, the comment text is sent to CleanMod's API for moderation analysis.
+
+**Service Provider:** [CleanMod](https://cleanmod.dev)
+
+**Terms of Use:** [https://cleanmod.dev/terms](https://cleanmod.dev/terms)
+
+**Privacy Policy:** [https://cleanmod.dev/privacy](https://cleanmod.dev/privacy)
+
+By using this plugin, you acknowledge that comment data will be transmitted to CleanMod's servers for moderation purposes. By default, CleanMod saves only the comment hash and not the text itself. Please review CleanMod's terms of use and privacy policy to understand how your data is handled.
+
 == Installation ==
 
-1. Upload the `wp-cleanmod` folder to `/wp-content/plugins/`
+1. Upload the `cleanmod` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Go to `Settings → CleanMod` to configure your API key
 
