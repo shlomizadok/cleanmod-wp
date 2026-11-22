@@ -34,9 +34,9 @@ This plugin relies on the CleanMod moderation service (https://cleanmod.dev) to 
 
 **Service Provider:** [CleanMod](https://cleanmod.dev)
 
-**Terms of Use:** [https://cleanmod.dev/terms](https://cleanmod.dev/terms)
+**Terms of Use:** [https://cleanmod.dev/docs/terms](https://cleanmod.dev/docs/terms)
 
-**Privacy Policy:** [https://cleanmod.dev/privacy](https://cleanmod.dev/privacy)
+**Privacy Policy:** [https://cleanmod.dev/docs/privacy](https://cleanmod.dev/docs/privacy)
 
 By using this plugin, you acknowledge that comment data will be transmitted to CleanMod's servers for moderation purposes. By default, CleanMod saves only the comment hash and not the text itself. Please review CleanMod's terms of use and privacy policy to understand how your data is handled.
 
@@ -84,6 +84,12 @@ No. CleanMod adds an extra safety net on top of your existing moderation rules.
 = What happens if the CleanMod API is unavailable? =
 
 The plugin uses a fail-open policy. If the API is unavailable, comments will proceed normally without CleanMod moderation.
+
+= I use a Perspective API plugin. Can I switch? =
+
+Google's Perspective API shuts down on December 31, 2026, so plugins that call it will stop working. You can replace it with CleanMod: install this plugin, add a CleanMod API key, and deactivate the Perspective plugin. CleanMod's scores don't match Perspective's numerically, so start with "Hold for moderation" and review what gets held for a few days.
+
+If you run custom code against Perspective's `comments:analyze` API, CleanMod also offers a Perspective-compatible endpoint: see the [migration guide](https://cleanmod.dev/perspective-api-alternative).
 
 = Does this work with comment form plugins? =
 
